@@ -231,12 +231,17 @@ return [
     */
 
     'menu' => [
-        ['header' => 'CATEGORIA'],
+        ['header' => 'CADASTROS'],
         [
-            'text' => 'Listagem',
+            'text' => 'Categoria',
             'url' => 'categoria',
-            'icon' => 'fas fa-fw fa-users'],
+            'icon' => 'fas fa-fw fa-users',
         ],
+        [
+            'text' => 'Produtos',
+            'url' => 'produtos',
+            'icon' => 'fas fa-fw fa-flag',
+        ]
 
         /*[
             'text' => 'search',
@@ -333,6 +338,7 @@ return [
     | https://github.com/jeroennoten/Laravel-AdminLTE/#83-custom-menu-filters
     |
     */
+],
 
     'filters' => [
         JeroenNoten\LaravelAdminLte\Menu\Filters\GateFilter::class,
