@@ -4,6 +4,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::group(['middleware' => 'auth'], function() {
 Route::group(['prefix'=>'categoria', 'where'=>['id'=>'[0-9]+']], function() {
     Route::get('',              ['as'=>'categoria',             'uses'=>'CategoriaController@index']);
     Route::get('create',        ['as'=>'categoria.create',      'uses'=>'CategoriaController@create']);
@@ -15,7 +16,7 @@ Route::group(['prefix'=>'categoria', 'where'=>['id'=>'[0-9]+']], function() {
 });
 
 Route::group(['prefix'=>'produtos', 'where'=>['id'=>'[0-9]+']], function() {
-    Route::get('',             ['as'=>'produtos',         'uses'=>'ProdutosController@index'  ]);
+    Route::any('',             ['as'=>'produtos',         'uses'=>'ProdutosController@index'  ]);
     Route::get('create',       ['as'=>'produtos.create',  'uses'=>'ProdutosController@create' ]);
     Route::get('{id}/destroy', ['as'=>'produtos.destroy', 'uses'=>'ProdutosController@destroy']);
     Route::get('{id}/edit',    ['as'=>'produtos.edit',    'uses'=>'ProdutosController@edit'   ]);
@@ -23,6 +24,7 @@ Route::group(['prefix'=>'produtos', 'where'=>['id'=>'[0-9]+']], function() {
     Route::post('store',       ['as'=>'produtos.store',   'uses'=>'ProdutosController@store'  ]);
 });
 
+});
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

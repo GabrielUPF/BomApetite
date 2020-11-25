@@ -25,6 +25,7 @@ class ProdutoRequest extends FormRequest
     {
         return [
             'descricao' => 'required',
+            'categoria_id'=>'required',
         ];
     }
 }

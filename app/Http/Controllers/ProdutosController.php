@@ -8,8 +8,14 @@ use App\Http\Requests\ProdutoRequest;
 
 class ProdutosController extends Controller
 {
-    public function index() {
-		$produtos = Produto::orderBy('descricao')->paginate(5);
+    public function index(Request $filtro) {
+		$filtragem = $filtro->get('desc_filtro');
+		if($filtragem == null)
+			$produtos = Produto::orderBy('descricao')->paginate(5);
+		else
+			$produtos = Produto::where('descricao', 'like', '%'.$filtragem.'%')
+								->orderBy("descricao")
+								->paginate(10);
 		return view('produtos.index', ['produtos'=>$produtos]);
 	}
 
@@ -25,10 +31,18 @@ class ProdutosController extends Controller
 	}
 
 	public function destroy($id) {
+		try {
             Produto::find($id)->delete();
-            return redirect()->route('produtos');
+            $ret = array('status'=>200, 'msg'=>"null");
+		} catch (\Illuminate\Database\QueryException $e) {
+			$ret = array('status'=>500, 'msg'=>$e->getMessage());
+		}
+		catch (\PDOException $e) {
+			$ret = array('status'=>500, 'msg'=>$e->getMessage());
 	}
-
+	return $ret;
+	
+}
 	public function edit($id) {
 		$produto = Produto::find($id);
 		return view('produtos.edit', compact('produto'));

@@ -13,6 +13,8 @@
             }).then(function(isConfirm) {
                 if (isConfirm.value) {
            		 	$.get('/'+ @yield('table-delete') +'/'+id+'/destroy', function(data){
+                        console.log(data);
+                        if(data.status==200) {
                         swal.fire(
                             'Deletado!',
                             'Exclusão confirmada.',
@@ -20,6 +22,13 @@
                         ).then(function() {
                             window.location.reload();
                         });
+                }
+                else
+                    swal.fire(
+                        'Erro!',
+                        'Ocorreram erros na exclusão. Entre em contato com o suporte.',
+                        'error'
+                    );
                     });
                 }
             })

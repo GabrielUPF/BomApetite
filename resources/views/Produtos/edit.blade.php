@@ -19,6 +19,12 @@
 			{!! Form::text('descricao', $produto->descricao, ['class'=>'form-control', 'required']) !!}
 		</div>
 		<div class="form-group">
+			{!! Form::label('categoria_id', 'Categoria:') !!}
+			{!! Form::select('categoria_id',
+			 \App\Categoria::orderBy('descricao')->pluck('descricao', 'id')->toArray(),
+			  $produto->categoria_id, ['class'=>'form-control', 'required']) !!}
+		</div>
+		<div class="form-group">
 			{!! Form::submit('Editar Produto', ['class'=>'btn btn-primary']) !!}
 			{!! Form::reset('Limpar', ['class'=>'btn btn-default']) !!}
 		</div>
