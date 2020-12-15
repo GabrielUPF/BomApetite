@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddCategoriaIdToProduto extends Migration
+class RemoveFuncaoToFuncionarios extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class AddCategoriaIdToProduto extends Migration
      */
     public function up()
     {
-        Schema::table('produtos', function (Blueprint $table) {
-            $table->bigInteger('categoria_id')->unsigned()->nullable();
-            $table->foreign('categoria_id')->references('id')->on('categoria');
+        Schema::table('funcionarios', function (Blueprint $table) {
+            $table->dropColumn('funcao');
         });
     }
 
@@ -26,8 +25,8 @@ class AddCategoriaIdToProduto extends Migration
      */
     public function down()
     {
-        Schema::table('produto', function (Blueprint $table) {
-            //
+        Schema::table('funcionarios', function (Blueprint $table) {
+            $table->string('funcao', 100);
         });
     }
 }

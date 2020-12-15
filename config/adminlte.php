@@ -241,7 +241,22 @@ return [
             'text' => 'Produtos',
             'url' => 'produtos',
             'icon' => 'fas fa-fw fa-flag',
-        ]
+        ],
+        [
+            'text' => 'Pedidos',
+            'url' => 'pedidos',
+            'icon' => 'fas fa-fw fa-flag',
+        ],
+        [
+            'text' => 'Funcionarios',
+            'url' => 'funcionarios',
+            'icon' => 'fas fa-fw fa-users',
+        ],
+        [
+            'text' => 'Funções',
+            'url' => 'funcaos',
+            'icon' => 'fas fa-fw fa-users',
+        ],
 
         /*[
             'text' => 'search',
