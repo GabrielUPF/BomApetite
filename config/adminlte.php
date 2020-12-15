@@ -235,7 +235,7 @@ return [
         [
             'text' => 'Categoria',
             'url' => 'categoria',
-            'icon' => 'fas fa-fw fa-users',
+            'icon' => 'fas fa-thumbtack',
         ],
         [
             'text' => 'Produtos',
@@ -245,12 +245,12 @@ return [
         [
             'text' => 'Pedidos',
             'url' => 'pedidos',
-            'icon' => 'fas fa-fw fa-flag',
+            'icon' => 'fas fa-bacon',
         ],
         [
             'text' => 'Funcionarios',
             'url' => 'funcionarios',
-            'icon' => 'fas fa-fw fa-users',
+            'icon' => 'fas fa-address-card',
         ],
         [
             'text' => 'Funções',

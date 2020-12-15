@@ -13,8 +13,17 @@
 	
 
 		<div class="form-group">
-			{!! Form::label('mesa', 'Mesa:') !!}
-			{!! Form::text('mesa', null, ['class'=>'form-control', 'required']) !!}
+		{!! Form::label('mesa', 'Mesa:') !!}
+			{!! Form::select('mesa', 
+							 array( 'MESA 1'=>'MESA 1',
+							 		'MESA 2'=>'MESA 2', 
+							 		'MESA 3'=>'MESA 3',
+									'MESA 4'=>'MESA 4',
+									'MESA 5'=>'MESA 5',
+									'MESA 6'=>'MESA 6',
+									'MESA 7'=>'MESA 7',
+							 		'MESA 8'=>'MESA 8'),
+							 'MESA 1', ['class'=>'form-control', 'required']) !!}
 		</div>
         <hr />
 
