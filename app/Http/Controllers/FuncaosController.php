@@ -37,8 +37,8 @@ class FuncaosController extends Controller
 		return $ret;
 	}
 
-	public function edit($id) {
-		$funcao = Funcao::find($id);
+	public function edit(Request $request) {
+		$funcao = Funcao::find(\Crypt::decrypt($request->get('id')));
 		return view('funcao.edit', compact('funcao'));
 	}
 

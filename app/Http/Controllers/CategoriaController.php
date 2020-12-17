@@ -39,8 +39,8 @@ class CategoriaController extends Controller
 	
 }
 
-	public function edit($id) {
-		$categoria = Categoria::find($id);
+	public function edit(Request $request) {
+		$categoria = Categoria::find(\Crypt::decrypt($request->get('id')));
 		return view('categoria.edit', compact('categoria'));
 	}
 

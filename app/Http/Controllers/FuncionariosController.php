@@ -39,8 +39,8 @@ class FuncionariosController extends Controller
 	
 }
 
-	public function edit($id) {
-		$funcionarios = Funcionario::find($id);
+	public function edit(Request $request) {
+		$funcionarios = Funcionario::find(\Crypt::decrypt($request->get('id')));
 		return view('funcionario.edit', compact('funcionarios'));
 	}
 

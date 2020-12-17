@@ -15,7 +15,7 @@
 						<td>{{ $categoria->descricao}}</td>
 
 						<td>
-							<a href="{{ route('categoria.edit', ['id'=>$categoria->id]) }}" class="btn-sm btn-success">Editar</a>
+							<a href="{{ route('categoria.edit', ['id'=>\Crypt::encrypt($categoria->id)]) }}" class="btn-sm btn-success">Editar</a>
 							<a href="#" onclick="return ConfirmaExclusao({{$categoria->id}})"  class="btn-sm btn-danger">Remover</a>
 						</td>
 					<br>

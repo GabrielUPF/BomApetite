@@ -43,8 +43,8 @@ class ProdutosController extends Controller
 	return $ret;
 	
 }
-	public function edit($id) {
-		$produto = Produto::find($id);
+	public function edit(Request $request) {
+		$produto = Produto::find(\Crypt::decrypt($request->get('id')));
 		return view('produtos.edit', compact('produto'));
 	}
 

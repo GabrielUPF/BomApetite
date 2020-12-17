@@ -15,7 +15,7 @@
 
 		<div class="form-group">
 			{!! Form::label('descricao', 'Descrição:') !!}
-			{!! Form::text('descricao', $nacionalidade->descricao, ['class'=>'form-control', 'required']) !!}
+			{!! Form::text('descricao', $funcao->descricao, ['class'=>'form-control', 'required']) !!}
 		</div>
 
 		<div class="form-group">

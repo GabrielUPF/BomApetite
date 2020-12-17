@@ -13,7 +13,7 @@
 				<tr>
 					<td>{{ $funcao->descricao }}</td>
 					<td>
-						<a href="{{ route('funcaos.edit', ['id'=>$funcao->id]) }}" class="btn-sm btn-success">Editar</a>
+						<a href="{{ route('funcaos.edit', ['id'=>\Crypt::encrypt($funcao->id)]) }}" class="btn-sm btn-success">Editar</a>
 						<a href="#" onclick="return ConfirmaExclusao({{$funcao->id}})"  class="btn-sm btn-danger">Remover</a>
 					</td>
 				</tr>
